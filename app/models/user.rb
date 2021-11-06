@@ -8,5 +8,10 @@ class User < ApplicationRecord
 
     validates :email, format: {with: /\A[^@\s]+@[^@\s]+\z/},
     uniqueness: {case_sensitive: false }
+    validates :avatar_file, file: {ext: [:jpg, :png, :jpeg]}
+
+    def to_session
+        {id: id}
+    end
     
 end
