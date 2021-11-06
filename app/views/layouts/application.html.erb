@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PETSYGrafikart</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+      <div class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+              <a href="<%= root_path %>" class="navbar-brand">Petsy</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="<%= new_user_path %>"> s'inscrire </a></li>
+              <li><a href=""></a>Se conecter</li>
+            </ul>
+        </div>
+      </div>
+      <div class="container">
+      <% if flash[:success] = "Successfully created..." %>
+        <div class="alert alert-success"></div>
+        <%= flash[:success] %>
+        </div>
+        <% end %>
+
+        <% if flash[:danger] = "Successfully created..." %>
+        <div class="alert alert-danger"></div>
+        <%= flash[:danger] %>
+        </div>
+        <% end %>
+
+        <%= yield %> 
+      </div>
+         
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </body>
+</html>
+
