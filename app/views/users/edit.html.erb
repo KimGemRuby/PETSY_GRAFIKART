@@ -9,12 +9,17 @@
 <% end %>
 
 <div class="panel panel-default">
-    <div class="panel-heading">S'inscrire</div>
+    <div class="panel-heading">Modifier mon compte</div>
     <div class="panel-body" >
-        <%= form_for @user, url: profil_path, html: {class: 'form-horizontal'} do |f| %>
+        <%= form_for @user, url: password_path(@user.id) html: {class: 'form-horizontal'} do |f| %>
+
+
+        <% if @user.avatar %>
+            <%= image_tag @user.avatar_url %>
+        <% end %>
 
             <div class="form-group">
-                <%= f.label :avatar, "Avatar", class: 'col-md-4 control-label' %>
+                <%= f.label :avatar_file, "Avatar", class: 'col-md-4 control-label' %>
                 <div class="col-md-8">
                     <%= f.file_field :avatar_file, class: 'form-control' %>
                 </div>
@@ -51,7 +56,7 @@
             <div class="form-group">
                 <div class="col-md-6 col-md-offset-4">
                     <button type="submit" class="btn btn-primary">
-                        S'inscrire
+                        Modifier mon compte
                     </button>
                 </div>
             </div>

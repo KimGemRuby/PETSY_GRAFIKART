@@ -1,7 +1,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">Se connecter</div>
     <div class="panel-body" >
-        <%= form_for :user, url: new_sessions_path, html: {class: 'form-horizontal'} do |f| %>
+        <%= form_for :user, url: new_session_path, html: {class: 'form-horizontal'} do |f| %>
             <div class="form-group">
                 <%= f.label :username, "Nom d'utilisateur ou email", class: 'col-md-4 control-label' %>
                 <div class="col-md-8">
@@ -21,6 +21,7 @@
                     <button type="submit" class="btn btn-primary">
                         Se connecter
                     </button>
+                    <a href="<%= new_password_path %>" class="btn btn-link">Mot de passe oublie</a>
                 </div>
             </div>    
         <% end %>

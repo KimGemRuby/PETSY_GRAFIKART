@@ -10,10 +10,11 @@ class UsersController < ApplicationController
     def create
         user_params = params.require(:user).permit(:username, :email, :password, :password_confirmation)
             @user = User.new(user_params)
+            @user.recover_password = nil
             if @user.valid?
                 @user.save
                 UserMailer.confirm(@user).deliver_now
-                redirect_to new_user_path success: 'votre compte a bien ete creee, vous devriez recevoir un email de confimation'
+                redirect_to new_session_path, success: 'votre compte a bien ete creee, vous devriez recevoir un email de confimation'
                 #render 'new'
              else 
                 render 'new'
@@ -45,10 +46,5 @@ class UsersController < ApplicationController
         else
             render 'edit'
         end
-    end
-
-   
-
-
-    
+    end   
 end
