@@ -13,7 +13,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">modifier mon mot de passe</div>
     <div class="panel-body" >
-        <%= form_for @user, html: {class: 'form-horizontal'} do |f| %>
+        <%= form_for @user, password_path(@user.id) html: {class: 'form-horizontal'} do |f| %>
 
             <%= f.hidden_field :recover_password %>
 
