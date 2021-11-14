@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 
+    include ApplicationHelper
     protect_from_forgery with: :exception
     before_action :only_signed_in
     add_flash_types :success, :danger

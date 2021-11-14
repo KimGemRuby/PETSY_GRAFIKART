@@ -13,6 +13,14 @@
             <div class="navbar-header">
               <a href="<%= root_path %>" class="navbar-brand">Petsy</a>
             </div>
+            <% if isAdmin? %>
+            <ul class="nav navbar-nav">
+             <li>
+             <%= link_to 'Gestion des especes', [:admin, Species] %>
+                <a href="#">Gestion des especes</a>
+            </li>
+            </ul>
+            <% end %>
             <ul class="nav navbar-nav navbar-right">
                     <% if user_signed_in? %>
                         <li class="dropdown"></li>

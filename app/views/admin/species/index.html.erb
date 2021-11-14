@@ -1,0 +1,24 @@
+<h1> gerer les especes</h1>
+
+<p class="text-right">
+  <%= link_to "New Species", {action: :new}, class: 'btn btn-primary' %>
+</p>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>nom</th>
+        <th>slug</th>
+        <th>Actions></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @species.each do |species| %>
+        <tr>
+            <td><%= species.name %></td>
+            <td><%= species.slug %></td>
+            <td><%= species.slug %></td>
+        </tr>
+        <%end>
+    </tboby>
+</table>

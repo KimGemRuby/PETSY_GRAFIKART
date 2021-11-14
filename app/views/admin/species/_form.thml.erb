@@ -1,0 +1,54 @@
+<%= form_for species, url: [:admin, species], html: { class: 'form-horizontal' } do |f| %>
+
+  <% if species.errors.any? %>
+    <div class="alert alert-danger">
+      <h4>There was a problem with your submission</h4>
+      <ul>
+        <% species.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, "Name", class: 'col-md-4 control-label' %>
+    <div class="col-md-8"
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :slug, "URL", class: 'col-md-4 control-label' %>
+    <div class="col-md-8"
+    <%= f.text_field :slug, class: 'form-control' %>
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <div class="form-group">
+    <%= f.label :bithday, "birthday", class: 'col-md-4 control-label' %> >
+    <div class="col-md-8">
+      <%= f.text_field :birthday, class: 'form-control form-datepicker' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-offset-4 col-md-6">
+      <button type="submit" class="btn btn-primary">
+        <%= species.new_record? 'Create' : 'Modifier' %>
+      </button>
+    </div>
+  </div>
+
+
+
+<% end %>
